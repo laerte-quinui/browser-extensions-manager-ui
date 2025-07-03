@@ -1,0 +1,99 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px;
+  border-radius: 1rem;
+  background-color: var(--neutral-800);
+}
+
+.navbar .logo {
+  height: 40px;
+  width: 136px;
+
+  & :not(g > path) {
+    fill: var(--neutral-100);
+  }
+}
+
+body[data-theme='light'] .navbar {
+  background-color: var(--neutral-0);
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.08);
+
+  & .logo :not(g > path) {
+    fill: var(--neutral-900);
+  }
+}
+
+.theme-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--neutral-700);
+
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  & svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  & svg g path {
+    stroke: var(--neutral-100);
+  }
+
+  &:hover {
+    background-color: var(--neutral-600);
+  }
+
+  &:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    top: calc(100% + 0.5rem);
+  }
+}
+
+.theme-button .tooltip {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+
+  padding: 0.4rem 0.5rem;
+  background-color: var(--neutral-200);
+  color: var(--neutral-800);
+  border-radius: 0.5rem;
+  font-weight: 500;
+
+  white-space: nowrap;
+  visibility: none;
+  opacity: 0;
+
+  transition: all 0.15s ease-in-out;
+  transition-delay: 0.2s;
+}
+
+body[data-theme='light'] .theme-button {
+  background-color: var(--neutral-100);
+
+  & .tooltip {
+    background-color: var(--neutral-800);
+    color: var(--neutral-100);
+  }
+
+  & svg g path {
+    stroke: var(--neutral-900);
+  }
+
+  &:hover {
+    background-color: var(--neutral-300);
+  }
+}

@@ -13,8 +13,7 @@
   --red-500: hsl(3, 71%, 56%);
   --red-700: hsl(3, 77%, 44%);
 
-  --light-gradient: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
-  --dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+  --bg-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
 
   font-family: Noto Sans, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
@@ -29,8 +28,9 @@ body {
   min-height: 100vh;
 
   font-size: 16px;
-  background: var(--dark-gradient);
+  background: var(--bg-gradient);
 }
 
-/* @media (prefers-color-scheme: light) {
-} */
+body[data-theme='light'] {
+  --bg-gradient: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+}
