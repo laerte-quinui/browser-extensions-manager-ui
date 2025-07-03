@@ -1,9 +1,13 @@
-import { useState } from 'react'
+import type { FilterType } from '../App'
 
-const FilterButtons = () => {
-  const [filter, setFilter] = useState('all')
-
-  const buttons = [
+const FilterButtons = ({
+  filter,
+  setFilter
+}: {
+  filter: FilterType
+  setFilter: (value: FilterType) => void
+}) => {
+  const buttons: { label: string; value: FilterType }[] = [
     { label: 'All', value: 'all' },
     { label: 'Active', value: 'active' },
     { label: 'Inactive', value: 'inactive' }
