@@ -59,7 +59,10 @@ const AlertDelete = ({
 
   return (
     <>
-      <div className={`alert__bg ${visibilityClass}`} />
+      <div
+        className={`alert__bg ${visibilityClass}`}
+        onClick={() => setIsVisible(false)}
+      />
       <div className={`alert ${visibilityClass}`}>
         <h2>Hold up!</h2>
         <p>Are you sure you want to remove this extension?</p>
