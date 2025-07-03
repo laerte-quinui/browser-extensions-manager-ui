@@ -1,0 +1,143 @@
+/* Buttons */
+.btn {
+  display: flex;
+  align-items: center;
+  border-radius: 99999px;
+  padding: 0.5rem 1rem;
+
+  background-color: var(--neutral-700);
+  border: 1px solid var(--neutral-600);
+  outline: 2px solid transparent;
+  color: var(--neutral-0);
+
+  font-weight: 400;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background-color: var(--neutral-600);
+}
+
+.btn:focus,
+.switch-btn:focus {
+  outline-color: var(--red-400);
+  outline-offset: 2px;
+}
+
+.btn:not(.btn-active):not(.btn-outline):focus {
+  color: var(--neutral-0);
+  border-color: var(--neutral-600);
+  background-color: var(--neutral-600);
+}
+
+.btn-active {
+  background-color: var(--red-400);
+  border-color: var(--red-400);
+  color: var(--neutral-900);
+}
+
+.btn-active:hover {
+  background-color: var(--red-500);
+  border-color: var(--red-500);
+}
+
+.btn-sm {
+  padding: 0.25rem 1rem;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--neutral-600);
+}
+
+.btn-outline:hover {
+  background-color: var(--red-400);
+  border-color: var(--red-400);
+  color: var(--neutral-900);
+}
+
+.btn-outline:focus {
+  background-color: var(--neutral-600);
+  border-color: var(--neutral-600);
+  color: var(--neutral-0);
+}
+
+body[data-theme='light'] {
+  & .btn:not(.btn-active):not(.btn-outline) {
+    border: 0px;
+    background-color: var(--neutral-0);
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.08);
+    color: var(--neutral-900);
+  }
+
+  & .btn:not(.btn-active):not(.btn-outline):hover {
+    opacity: 0.7;
+  }
+
+  & .btn-active {
+    background-color: var(--red-400);
+    border-color: var(--red-400);
+    color: var(--neutral-0);
+  }
+
+  & .btn-outline {
+    border-color: var(--neutral-300);
+    color: var(--neutral-900);
+  }
+
+  & .btn-outline:hover {
+    border-color: var(--red-400);
+    color: var(--neutral-0);
+  }
+
+  & .btn-outline:focus {
+    background-color: var(--neutral-100);
+    border-color: var(--neutral-100);
+    color: var(--neutral-900);
+  }
+}
+
+/* Switch Button */
+.switch-btn {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: var(--neutral-600);
+  border-radius: 12px;
+  transition: background-color, opacity 0.2s ease-in-out;
+  outline: 2px solid transparent;
+}
+
+.switch-btn__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--neutral-0);
+  border-radius: 50%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.switch-btn:hover {
+  opacity: 0.85;
+}
+
+.switch-btn.switch-active {
+  background-color: var(--red-400);
+
+  & .switch-btn__thumb {
+    transform: translateX(20px);
+  }
+}
+
+body[data-theme='light'] {
+  & .switch-btn {
+    background-color: var(--neutral-300);
+  }
+
+  & .switch-btn.switch-active {
+    background-color: var(--red-400);
+  }
+}

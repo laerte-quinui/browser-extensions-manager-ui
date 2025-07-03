@@ -31,8 +31,25 @@ body {
   background: var(--bg-gradient);
 }
 
+body[data-theme='light'] {
+  --bg-gradient: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+
+  & h1 {
+    color: var(--neutral-900);
+  }
+}
+
 h1 {
   color: var(--neutral-0);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin-block-start: 0em;
   margin-block-end: 0em;
 }
@@ -46,12 +63,4 @@ button {
   font-family: inherit;
   font-synthesis: inherit;
   text-rendering: inherit;
-}
-
-body[data-theme='light'] {
-  --bg-gradient: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
-
-  & h1 {
-    color: var(--neutral-900);
-  }
 }
