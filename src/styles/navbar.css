@@ -13,6 +13,10 @@
   height: 40px;
   width: 136px;
 
+  & g > path {
+    fill: var(--red-500);
+  }
+
   & :not(g > path) {
     fill: var(--neutral-100);
   }
