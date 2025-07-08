@@ -6,10 +6,16 @@ interface Props {
   name: string
   description: string
   isActive: boolean
+  onToggleActive: (name: string) => void
 }
 
-const ExtensionCard = ({ logo, name, description, isActive: isOn }: Props) => {
-  const [isActive, setIsActive] = useState(isOn)
+const ExtensionCard = ({
+  logo,
+  name,
+  description,
+  isActive,
+  onToggleActive
+}: Props) => {
   const [showAlert, setShowAlert] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
 
@@ -37,7 +43,7 @@ const ExtensionCard = ({ logo, name, description, isActive: isOn }: Props) => {
           </button>
           <button
             className={`switch-btn ${isActive ? 'switch-active' : ''}`}
-            onClick={() => setIsActive(!isActive)}
+            onClick={() => onToggleActive(name)}
           >
             <span className='switch-btn__thumb' />
           </button>

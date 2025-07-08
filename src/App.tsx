@@ -10,6 +10,15 @@ export type FilterType = 'all' | 'active' | 'inactive'
 
 function App() {
   const [filter, setFilter] = useState<FilterType>('all')
+  const [extensions, setExtensions] = useState(data)
+
+  const handleToggleActive = (name: string) => {
+    setExtensions(prev =>
+      prev.map(ext =>
+        ext.name === name ? { ...ext, isActive: !ext.isActive } : ext
+      )
+    )
+  }
 
   return (
     <div className='container'>
@@ -21,7 +30,7 @@ function App() {
       </div>
 
       <div className='extensions'>
-        {data
+        {extensions
           .filter(extension =>
             filter !== 'all'
               ? filter === 'active'
@@ -30,13 +39,7 @@ function App() {
               : extension
           )
           .map(extension => (
-            <ExtensionCard
-              key={extension.name}
-              logo={extension.logo}
-              name={extension.name}
-              description={extension.description}
-              isActive={extension.isActive}
-            />
+            <ExtensionCard {...extension} onToggleActive={handleToggleActive} />
           ))}
       </div>
     </div>
