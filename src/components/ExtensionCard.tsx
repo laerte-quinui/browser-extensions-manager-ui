@@ -11,10 +11,11 @@ interface Props {
 const ExtensionCard = ({ logo, name, description, isActive: isOn }: Props) => {
   const [isActive, setIsActive] = useState(isOn)
   const [showAlert, setShowAlert] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
 
   return (
     <>
-      <div className='extension-card'>
+      <div className={`extension-card ${isVisible ? '' : 'hidden'}`}>
         <div className='extension-card__header'>
           <img
             src={logo}
@@ -43,19 +44,33 @@ const ExtensionCard = ({ logo, name, description, isActive: isOn }: Props) => {
         </div>
       </div>
 
-      <AlertDelete isVisible={showAlert} setIsVisible={setShowAlert} />
+      <AlertDelete
+        name={name}
+        isVisible={showAlert}
+        setIsVisible={setShowAlert}
+        setIsExtensionVisible={setIsVisible}
+      />
     </>
   )
 }
 
 const AlertDelete = ({
+  name,
   isVisible,
-  setIsVisible
+  setIsVisible,
+  setIsExtensionVisible
 }: {
+  name: string
   isVisible: boolean
   setIsVisible: (value: boolean) => void
+  setIsExtensionVisible: (value: boolean) => void
 }) => {
   const visibilityClass = isVisible ? 'alert-visible' : ''
+
+  const handleRemoveExtension = () => {
+    setIsExtensionVisible(false)
+    setIsVisible(false)
+  }
 
   return (
     <>
@@ -65,12 +80,20 @@ const AlertDelete = ({
       />
       <div className={`alert ${visibilityClass}`}>
         <h2>Hold up!</h2>
-        <p>Are you sure you want to remove this extension?</p>
+        <p>
+          Are you sure you want to remove the extension{' '}
+          <span className='extension-name'>{name}</span>?
+        </p>
         <div className='alert__buttons'>
           <button className='btn btn-sm' onClick={() => setIsVisible(false)}>
             Cancel
           </button>
-          <button className='btn btn-sm btn-active'>Remove</button>
+          <button
+            className='btn btn-sm btn-active'
+            onClick={handleRemoveExtension}
+          >
+            Remove
+          </button>
         </div>
       </div>
     </>
