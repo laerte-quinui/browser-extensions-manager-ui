@@ -45,6 +45,7 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - CSS Grid
+- [SVGR](https://react-svgr.com/) - To trasnform SVG into React components
 - [TypeScript](https://www.typescriptlang.org/) - JavaScript with types
 - [React](https://reactjs.org/) - JS library
 - [Vite](https://vite.dev/) - Build tool

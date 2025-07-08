@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import MoonIcon from '../assets/images/icon-moon.svg?react'
 import SunIcon from '../assets/images/icon-sun.svg?react'
 import Logo from '../assets/images/logo.svg?react'
-import '../styles/Navbar.css'
+import '../styles/navbar.css'
 
 const Navbar = () => {
   return (
